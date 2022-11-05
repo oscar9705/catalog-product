@@ -18,12 +18,12 @@ public class ResponseDTO {
     private MetaDTO.Meta meta;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Product data;
+    private Object data;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Error error;
 
-    public static ResponseDTO success(Product data, ServerRequest request){
+    public static ResponseDTO success(Object data, ServerRequest request){
         return ResponseDTO.builder()
                 .meta(MetaDTO.build(data, request))
                 .data(data)
