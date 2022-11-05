@@ -3,6 +3,8 @@ package co.com.product.catalog.usecase.crudproducto;
 import co.com.product.catalog.model.product.Product;
 import co.com.product.catalog.model.product.gateways.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -11,11 +13,12 @@ public class CrudProductoUseCase {
 
     private final ProductRepository productRepository;
 
-    public void create(Product product) {
-        productRepository.create(product);
+    public Mono<Product> create(Product product) {
+        return productRepository.create(product);
     }
 
-    public List<Product> findAll() {
+    public Flux<Product> findAll() {
+
         return productRepository.findAll();
     }
 }

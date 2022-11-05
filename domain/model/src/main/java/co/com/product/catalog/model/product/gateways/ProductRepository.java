@@ -1,10 +1,10 @@
 package co.com.product.catalog.model.product.gateways;
 
 import co.com.product.catalog.model.product.Product;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface ProductRepository {
-    void create(Product product);
-    List<Product> findAll();
+    Mono<Product> create(Product product);
+    Flux<Product> findAll();
 }

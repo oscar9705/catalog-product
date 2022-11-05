@@ -31,4 +31,8 @@ public class AdapterOperations<E, D, I, R extends ReactiveCrudRepository<D, I>> 
         return toEntity.apply(data);
     }
 
+    protected D convertToData(E entity) {
+        return toData.apply(entity);
+    }
+
 }
